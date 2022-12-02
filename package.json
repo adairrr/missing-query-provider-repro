@@ -1,0 +1,79 @@
+{
+  "name": "testing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dapp": "yarn workspace dapp",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev": "turbo run dev",
+    "start": "yarn dapp start"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "packageManager": "yarn@3.2.1",
+  "multiplerun": {
+    "dev": [
+      "yarn run tsc --watch --noEmit",
+      [
+        "VITE_APP_VERSION=$(git rev-parse --short HEAD) && yarn run vite"
+      ]
+    ]
+  },
+  "lint-staged": {
+    "src/{**/*,*}/*.{ts,tsx,json}": [
+      "prettier --write --cache",
+      "eslint --quiet --cache --fix"
+    ]
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/eslint": "^8",
+    "@types/prettier": "^2",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-mdx": "^2.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.7.1",
+    "turbo": "^1.5.3"
+  },
+  "dependencies": {
+    "typescript": "4.9.3"
+  },
+  "resolutions": {
+    "@cosmjs/amino": "^0.29.3",
+    "@cosmjs/encoding": "^0.29.3",
+    "@cosmjs/math": "^0.29.3",
+    "@cosmjs/crypto": "^0.29.3",
+    "@cosmjs/proto-signing": "^0.29.3",
+    "@cosmjs/socket": "^0.29.3",
+    "@cosmjs/stargate": "^0.29.3",
+    "@cosmjs/stream": "^0.29.3",
+    "@cosmjs/utils": "^0.29.3",
+    "@cosmjs/tendermint-rpc": "^0.29.3",
+    "crypto-addr-codec": "npm:crypto-addr-codec-vite@0.1.6",
+    "@emotion/react": "^11.9.3",
+    "loader-utils": "^2.0.3",
+    "got": "^11.8.5",
+    "trim": "^0.0.3",
+    "trim-newlines": "^3.0.1",
+    "axios": "^0.21.2"
+  }
+}
