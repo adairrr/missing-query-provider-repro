@@ -1,6 +1,6 @@
 import { Tendermint34Client } from '@cosmjs/tendermint-rpc'
 import { QueryKey } from '@tanstack/query-core'
-import { useQuery } from '@tanstack/react-query'
+import { defaultContext, useQuery } from '@tanstack/react-query'
 import { CosmWasmClient } from '@cosmjs/cosmwasm-stargate'
 import { StargateClient } from '@cosmjs/stargate'
 import { KeyedReactQueryOptions } from 'react-query-helpers'
@@ -16,11 +16,11 @@ export const clientKeys = {
  * Generic hook that can return a readonly client based on the network rpc.
  */
 const useNetworkClient = <TClient, QKey extends QueryKey>({
-  rpcUrl,
-  queryKey,
-  queryFn,
-  options,
-}: {
+                                                            rpcUrl,
+                                                            queryKey,
+                                                            queryFn,
+                                                            options,
+                                                          }: {
   rpcUrl: string
   queryKey: (id: string) => QKey
   queryFn: (rpc: string) => Promise<TClient>
@@ -35,6 +35,7 @@ const useNetworkClient = <TClient, QKey extends QueryKey>({
         console.error(`Failed to connect to${rpcUrl}`, e)
         throw e
       },
+      context: defaultContext,
       ...options,
     }
   )

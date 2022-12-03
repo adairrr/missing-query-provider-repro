@@ -2,23 +2,20 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { CosmWasmClient } from '@cosmjs/cosmwasm-stargate'
-import { useExecuteMutation } from 'cw-query-hooks'
-import { useRpcClients } from 'cw-query-hooks/src'
+import { useExecuteMutation } from '@test/cw-query-hooks'
+import { useRpcClients } from '@test/cw-query-hooks'
 
 function App() {
   const [count, setCount] = useState(0)
 
 
-
-  // const {execMutation} = useExecuteMutation()
+  const {execMutation} = useExecuteMutation()
 
   const { readOnlyClient } = useRpcClients()
 
   const doThing = () => {
     console.log(readOnlyClient?.getBlock(52222))
   }
-
-
 
   return (
     <div className="App">
@@ -36,7 +33,7 @@ function App() {
           count is {count}
         </button>
         <button onClick={doThing}>
-          count is {count}
+          Do something
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

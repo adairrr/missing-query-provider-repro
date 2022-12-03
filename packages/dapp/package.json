@@ -12,10 +12,12 @@
     "@cosmjs/cosmwasm-stargate": "^0.29.4",
     "@tanstack/react-query": "^4.19.0",
     "@tanstack/react-query-devtools": "^4.19.0",
+    "@test/cw-query-hooks": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
     "react-query-helpers": "^0.0.10",
-    "cw-query-hooks": ""
+    "react-router-dom": "^6.4.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

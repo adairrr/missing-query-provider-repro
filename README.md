@@ -1,19 +1,17 @@
-# Abstract Frontend Monorepo
-This monorepo contains the frontend for Abstract-OS, based in React.
+# Missing Query Provider Reproduction
+This repo highlights the missing QueryProvider issue with react-query hooks in a separate repository using yarn v3.
 
-## Commands
+### Works with QueryClientProvider
+```shell
+rm -rf .yarn
+rm .yarnrc.yml
+rm yarn.lock
+yarn build && yarn preview
+```
 
-- `yarn start`: Run the app in development mode at https://localhost:3000. Any edits will automatically reload.
-
-
-## Setup
-
-### Yarn Plugins
-
-```bash
-echo 'enableGlobalCache: true\n\nnodeLinker: node-modules' > .yarnrc.yml && \
-yarn set version stable && \
-yarn plugin import typescript && \
-yarn plugin import interactive-tools && \
-yarn plugin import https://raw.githubusercontent.com/lyleunderwood/yarn-plugin-yaml-manifest/master/bundles/%40yarnpkg/plugin-yaml-manifest.js
+### Fails with QueryClientProvider
+```
+yarn set version stable
+yarn build
+yarn preview
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "cw-query-hooks",
+  "name": "@test/cw-query-hooks",
   "version": "1.0.0",
   "description": "Hooks for cosmwasm apps",
   "author": "adairrr",
